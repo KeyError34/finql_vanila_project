@@ -1,0 +1,1 @@
+{"version":3,"file":"index.css","mappings":";;;AAAA;AAEA;EACE,2BAA2B","sources":["webpack://project_final/./src/styles/main.scss"],"sourcesContent":["/*# sourceMappingURL=main.css.map */\r\n\r\nbody {\r\n  background-color: lightblue;\r\n}"],"names":[],"sourceRoot":""}

@@ -1,0 +1,1 @@
+{"version":3,"file":"events.css","mappings":";;;AAAA;EACE,4BAA4B","sources":["webpack://project_final/./src/styles/events.scss"],"sourcesContent":["body {\r\n  background-color: lightcoral;\r\n}\r\n"],"names":[],"sourceRoot":""}
