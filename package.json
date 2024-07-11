@@ -8,7 +8,6 @@
   },
   "author": "",
   "license": "ISC",
-  "description": "",
   "devDependencies": {
     "@babel/core": "^7.24.7",
     "@babel/preset-env": "^7.24.7",
@@ -28,5 +27,6 @@
     "axios": "^1.7.2",
     "i18n": "^0.15.1",
     "lodash": "^4.17.21"
-  }
+  },
+  "description": ""
 }

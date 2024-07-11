@@ -15198,6 +15198,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! i18n */ "./node_modules/i18n/index.js");
 /* harmony import */ var i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(i18n__WEBPACK_IMPORTED_MODULE_1__);
 
+// import "../assets/icons/events_img";
 
 console.log("Это страница о нас");
 })();

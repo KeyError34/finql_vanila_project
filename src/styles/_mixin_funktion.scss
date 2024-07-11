@@ -1,0 +1,44 @@
+//  миксин для Flexbox 
+@mixin flexbox(
+  $direction: row,
+  $wrap: nowrap,
+  $justify: flex-start,
+  $align: stretch,
+  $alignContent: stretch
+) {
+  display: flex;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+  justify-content: $justify;
+  align-items: $align;
+  align-content: $alignContent;
+}
+
+//  flex-элементы 
+@mixin flexItem($grow: 0, $shrink: 1, $basis: auto, $alignSelf: auto) {
+  flex: $grow $shrink $basis;
+  align-self: $alignSelf;
+}
+
+// отступы
+@mixin indents($margin, $pading, $gap) {
+  margin: $margin;
+  padding: $pading;
+  gap: $gap;
+}
+
+//  размеры
+@mixin dimensions($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin max-dimensions($width, $height) {
+  max-width: $width;
+  max-height: $height;
+}
+
+@mixin min-dimensions($width, $height) {
+  min-width: $width;
+  min-height: $height;
+}
