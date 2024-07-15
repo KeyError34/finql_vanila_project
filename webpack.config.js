@@ -18,7 +18,7 @@ module.exports = {
     rules: [
       {
         test: /\.js$/, // указываем какого формата файлы будут проганяться
-        exclude: /node_modules/, // исключаем из процеса
+        exclude: /node_modules/, // исключаем из процесса
         use: {
           loader: "babel-loader",
           options: {
@@ -55,6 +55,17 @@ module.exports = {
           filename: "assets/icons/[name][ext]",
         },
       },
+      {
+        test: /\.hbs$/,
+        use: [
+          {
+            loader: "handlebars-loader",
+            options: {
+              partialDirs: path.resolve(__dirname, "src/partials"),
+            },
+          },
+        ],
+      },
     ],
   },
   plugins: [
@@ -63,12 +74,12 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       filename: "index.html",
-      template: "./src/index.html",
+      template: "./src/index.hbs",
       chunks: ["index"],
     }),
     new HtmlWebpackPlugin({
       filename: "events.html",
-      template: "./src/events.html",
+      template: "./src/events.hbs",
       chunks: ["events"],
     }),
   ],
@@ -80,7 +91,7 @@ module.exports = {
     },
   },
   devServer: {
-    contentBase: path.resolve(__dirname, "dist"),
+    static: path.resolve(__dirname, "dist"),
     open: true,
   },
 };

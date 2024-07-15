@@ -15,7 +15,7 @@
   </head>
   <body>
     <h1>Events Page</h1>
-    <nav>
+    {{!-- <nav>
       <div class="search">
         <a href="/src/assets/icons/main_img/Link - Meetup logo.svg" class="meetupLogo"></a>
         <input type="text" class="searchEvent" placeholder="Search events">
@@ -34,9 +34,15 @@
         <button class="logInBtn">Log in</button>
         <button class="singUpBtn">Sign un</button>
       </div>
-    </nav>
+    </nav> --}}
+       {{> header}}
+     <main>
+       <h2>Events Page Content</h2>
+       <!-- Add more main content here -->
+     </main>
+     {{> footer}}
 
-    <script src="/dist/events.bundle.js"></script>
+    {{!-- <script src="/dist/events.bundle.js"></script> --}}
     <!-- Путь к сгенерированному JS файлу -->
   </body>
 </html>

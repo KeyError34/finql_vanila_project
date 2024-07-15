@@ -1,4 +1,5 @@
 //  миксин для Flexbox 
+
 @mixin flexbox(
   $direction: row,
   $wrap: nowrap,
@@ -42,3 +43,10 @@
   min-width: $width;
   min-height: $height;
 }
+
+// Миксин для задания прозрачности цвета
+@mixin transparent-color($color, $opacity: 1) {
+  $rgba-color: rgba($color, $opacity);
+  color: $rgba-color;
+}
+

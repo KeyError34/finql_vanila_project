@@ -1,0 +1,103 @@
+@import "/src/styles/variables";
+@import "/src/styles/mixin_funktion";
+footer {
+  @include flexbox(column, nowrap, space-between, flex-start, center);
+  gap: 16px;
+  box-sizing: border-box;
+  background-color: $primary-background-color-footer;
+  padding: 10px 196px;
+  font-size: 16px;
+  @media (max-width: 1024px) {
+    padding: 10px 10px;
+  }
+}
+
+.meetUpGrope a,
+.meetUpGrope h3,
+.navigatorOll h3,
+.socialMedia h3,
+.navPolisy h3,
+.navPolisy a {
+  @include transparent-color($primary-font-color-btn-white, 1);
+  font-size: 16px;
+}
+
+.navigatorOll ul li a,
+.socialMedia ul li a,
+.navPolisy ul li a {
+  @include transparent-color($primary-font-color-btn-white, 0.7);
+  font-size: 16px;
+}
+
+.meetUpGrope {
+  @include flexbox(row, nowrap, start, center);
+  width: 100%;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.7);
+  padding: 16px 0;
+  gap: 16px;
+}
+
+.meetUpGropeBtn {
+  border: 1px solid $primary-font-color-btn-white;
+  border-radius: 8px;
+  @include dimensions(120px, 42px);
+  text-align: center;
+  align-content: center;
+  &:hover {
+    color: $primary-font-color;
+    background-color: $primary-font-color-btn-white;
+  }
+}
+
+.navigatorOll {
+  @include flexbox(row, wrap, space-between, flex-start, center);
+  width: 100%;
+  // background-image: url(../assets/icons/header_img/twiter.svg);
+}
+.socialMedia {
+  width: 100%;
+}
+.socialMediaLinkAll,
+.navPolisy {
+  width: 100%;
+  @include flexbox(row, nowrap, space-between);
+}
+.socialMediaLink,
+.socialMediaApp {
+  @include flexbox(row, nowrap, flex-start, center);
+  gap: 16px;
+  padding: 16px 0;
+  @media (max-width: 430px) {
+    gap: 8;
+  }
+}
+.socialMediaLink a {
+  @include dimensions(30px, 30px);
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(0) invert(1); /* Применение фильтра */
+}
+.socialMediaApp a {
+  @include dimensions(140px, 40px);
+  background-position: center;
+  background-repeat: no-repeat;
+  @media (max-width: 580px) {
+    display: none;
+  }
+}
+
+@media (max-width: 1151px) {
+    .navPolisy a:nth-child(n + 4) {
+    display: none;
+  }
+  .navPolisy {justify-content: space-around;}
+}
+
+  
+
+@media (max-width: 430px) {
+  .navPolisy a:nth-child(n + 2){
+   display: none;
+  }
+  .navPolisy {justify-content: start;}
+  }
