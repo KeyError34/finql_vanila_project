@@ -1,3 +1,32 @@
+
+/*# sourceMappingURL=main.css.map */
+@import "/src/styles/variables";
+@import "/src/styles/mixin_funktion";
+@import "/src/styles/header" ;
+@import "/src/styles/footer" ;
+* {
+  box-sizing: border-box;
+  font-family: $primary-font; // шрифт Roboto
+  border: none;
+  text-decoration-line: none;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  color: $primary-font-color;
+  appearance: none;
+}
+html {
+  @include dimensions(100%, 100%);
+  @include flexbox(row, nowrap, center);
+}
 body {
-  background-color: lightcoral;
+  @include max-dimensions($primary-width, 100vh);
+  @include indents(10px, 5px, 10px);
+
+  // background-color: lightblue;
+
+  // flex-direction: column;
+
+  // align-content: space-around;
 }

@@ -3,6 +3,7 @@ import "../../src/styles/main.scss";
 import i18n from "i18n";
 
 console.log("Это главная страница");
+
 const menuToggle = document.querySelector("#menuToggle");
 const sideMenu = document.querySelector(".menuContent");
 const selectIcon = document.querySelector(".selectIcon");
