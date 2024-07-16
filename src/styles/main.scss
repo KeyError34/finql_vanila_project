@@ -1,8 +1,8 @@
 /*# sourceMappingURL=main.css.map */
 @import "/src/styles/variables";
 @import "/src/styles/mixin_funktion";
-@import "/src/styles/header" ;
-@import "/src/styles/footer" ;
+@import "/src/styles/header";
+@import "/src/styles/footer";
 * {
   box-sizing: border-box;
   font-family: $primary-font; // шрифт Roboto
@@ -22,10 +22,192 @@ html {
 body {
   @include max-dimensions($primary-width, 100vh);
   @include indents(10px, 5px, 10px);
-
-  // background-color: lightblue;
-
+}
+#main {
+  padding: 10px 176px;
+  line-height: 24px;
+  @media (max-width: 1121px) {
+    padding: 10px 16px;
+  }
+}
+.peopleForm {
+  // justify-content: space-between;
+  @include flexbox(row, nowrap, space-between);
+  // gap:16px;
+  @media (max-width: 562px) {
+    flex-wrap: wrap;
+  }
+}
+#main,
+.peoplePlatform {
   // flex-direction: column;
 
-  // align-content: space-around;
+  @include flexbox(column, nowrap);
+  gap: 16px;
 }
+.peoplePlatform h1 {
+  line-height: 52px;
+  font-size: 42px;
+  font-weight: bold;
+  @media (max-width: 1121px) {
+    line-height: 30px;
+    font-size: 25px;
+  }
+}
+.peoplePlatform p {
+  font-size: 16px;
+  font-weight: 500;
+  max-width: 80%;
+}
+.peoplePlatform a {
+  @include transparent-color($primary-font-color-btn-white, 1);
+  background-color: $primary-color-btn-green;
+  text-align: center;
+  align-content: center;
+  border-radius: 8px;
+  @include dimensions(120px, 42px);
+  &:hover {
+    background-color: rgb(40, 164, 180);
+  }
+}
+.peoplePlatformImg img {
+  max-width: 380px;
+  max-height: 269px;
+  @media (max-width: 1121px) {
+    max-width: 215px;
+    max-height: 152px;
+  }
+}
+.peoplePlatformImg {
+  @media (max-width: 562px) {
+    margin: 16px 0;
+    width: 100%;
+    @include flexbox(row, nowrap, center, center);
+  }
+}
+.meetUpEventSoon,
+.meetUpEventAll {
+  @include flexbox(column, nowrap, start);
+  max-width:1150px; 
+}
+.meetUpSearch {
+  @include flexbox(row, nowrap, space-between, center);
+  margin: 16px 0;
+}
+.meetUpSearch a {
+  color: $primary-color-link;
+  font-weight: 500;
+  @media (max-width: 624px) {
+    
+     display: none;
+    
+  }
+}
+.searchTaunNear {
+  @include flexbox(row, nowrap, start, center);
+
+}
+.uncomenOnline h3,
+.searchTaunNear h3 {
+  margin-right: 16px;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 9px;
+  color: $primary-font-color;
+  @media (max-width: 624px) {
+    
+    font-size: 16px;
+   
+ }
+
+}
+.searchTaunNear input,
+.searchTaunNear button {
+  background-color: rgba(243, 249, 249, 1);
+}
+.searchTaunNear input {
+  @include dimensions(240px, 42px);
+  font-size: 18px;
+  @media (max-width: 624px) {
+    @include dimensions(150px, 42px);
+    font-size: 14px;
+   
+ }
+}
+.searchTaunNearBtn {
+  background-repeat: no-repeat;
+  background-position: center;
+  @include dimensions(42px, 42px);
+}
+.meetUpEventSoonAll,
+.meetUpEventDescription {
+  @include flexbox(row, wrap, center, center);
+  gap: 16px;
+  width: 100%;
+
+}
+.eventCard {
+  @include flexbox(column, wrap, start);
+  @include dimensions(200px, 360px);
+  margin-right: 16px;
+  @media (max-width: 1216px) {
+
+    @include dimensions(190px, 380px);
+  
+}
+
+
+  @media (max-width: 492px) {
+    @include dimensions(320px, 260px);
+     justify-content: start;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap:8px
+
+  
+}
+
+}
+.eventCard img {
+  width: 100%;
+  height: 130px;
+  @media (max-width: 492px) {
+    width: 174px;
+    
+  }
+}
+.meetUpEventSoonAll{
+  margin-top: 7px;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 1294px) {
+  .meetUpEventDescription .eventCard:nth-last-child(-n + 2) {
+    display: none;
+  }
+}
+@media (max-width: 1121px) {
+  .meetUpEventDescription .eventCard:nth-last-child(-n + 2) {
+    display: block;
+  }
+}
+@media (max-width: 934px) {
+  .meetUpEventDescription .eventCard:nth-last-child(-n + 2) {
+    display: none;
+  }
+}
+@media (max-width: 712px) {
+  .meetUpEventDescription .eventCard:nth-last-child(-n + 4) {
+    display: none;
+  }
+}
+@media (max-width: 492px) {
+  .meetUpEventDescription .eventCard:nth-last-child(-n + 6) {
+    display: none;
+  }
+}
+// @media (max-width: 974px) {
+//   .eventCard {
+//     @include dimensions(180px, 400px);
+//   }
+// }

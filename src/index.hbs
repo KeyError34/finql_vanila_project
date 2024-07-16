@@ -12,12 +12,43 @@
     <title>Main Page</title>
   </head>
   <body>
-   
-       {{> header}}
-     <main>
-      
+    {{> header}}
+     <main id="main">
+      <div class="peopleForm">
+      <div class="peoplePlatform">
+        <h1>The people platform—Where <br>
+        interests become friendships</h1>
+        <p>Whatever your interest, from hiking and reading to networking and skill sharing,
+        there are thousands of people who share it on Meetup. Events are happening
+        every day—sign up to join the fun.</p>
+     
+      <a href="http://127.0.0.1:5501/dist/events.html">Join Meetup</a>
+      </div> 
+      <div class="peoplePlatformImg">
+        <img src="/src/assets/images/main_img/mainPlatformImg.png" alt="people" class="mainPlatformImg">
+      </div>
+      </div>
+
+<div class="meetUpEventAll">
+  <form class="meetUpSearch">
+    <div class="searchTaunNear">
+      <h3>Events near</h3>
+      <input type="search" id="city-input" placeholder="  New York or San Francisco">
+      <button  style=" background-image: url(../src/assets/icons/main_img/pencil.svg)" type="button" class="searchTaunNearBtn"></button>
+    </div>
+    <a href="http://127.0.0.1:5501/dist/events.html">See all events</a>
+  </form>
+  <ul class="meetUpEventDescription"></ul>
+</div>
+<div class="meetUpEventSoon">
+  <div class="uncomenOnline">
+    <h3>Upcoming online events</h3>
+  </div>
+  <ul class="meetUpEventSoonAll"></ul>
+</div>
+
      </main>
-     {{> footer}}
+    {{> footer}}
 
   </body>
 </html>
