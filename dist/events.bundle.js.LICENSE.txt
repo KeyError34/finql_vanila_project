@@ -1,12 +1,4 @@
-/*!
-   * mustache.js - Logic-less {{mustache}} templates with JavaScript
-   * http://github.com/janl/mustache.js
-   */
-
-/*! https://mths.be/punycode v1.4.1 by @mathias */
-
-/**
- * @author      Created by Marcus Spiegel <spiegel@uscreen.de> on 2011-03-25.
- * @link        https://github.com/mashpie/i18n-node
- * @license     http://opensource.org/licenses/MIT
+/* @preserve
+ * Leaflet 1.9.4, a JS library for interactive maps. https://leafletjs.com
+ * (c) 2010-2023 Vladimir Agafonkin, (c) 2010-2011 CloudMade
  */

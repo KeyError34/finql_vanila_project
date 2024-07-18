@@ -1,11 +1,11 @@
-/*# sourceMappingURL=main.css.map */
+
 @import "/src/styles/variables";
 @import "/src/styles/mixin_funktion";
 @import "/src/styles/header";
 @import "/src/styles/footer";
 * {
   box-sizing: border-box;
-  font-family: $primary-font; // шрифт Roboto
+  font-family: $primary-font; 
   border: none;
   text-decoration-line: none;
   list-style-type: none;
@@ -31,17 +31,15 @@ body {
   }
 }
 .peopleForm {
-  // justify-content: space-between;
   @include flexbox(row, nowrap, space-between);
-  // gap:16px;
   @media (max-width: 562px) {
     flex-wrap: wrap;
   }
 }
+.howMeetupWorksTailDescription,
+.popularcitiesOnMeetup,
 #main,
 .peoplePlatform {
-  // flex-direction: column;
-
   @include flexbox(column, nowrap);
   gap: 16px;
 }
@@ -54,6 +52,27 @@ body {
     font-size: 25px;
   }
 }
+
+.howMeetupWorksTailDescription a,
+.howMeetupWorksTailDescription p {
+  font-size: 16px;
+  font-weight: 500;
+}
+.friendshipsAreMadeOnMeetupGroup,
+.howMeetupWorksTailDescription {
+
+ 
+  a{
+    color: $primary-color-link;
+    &:hover{
+      color: rgb(2, 177, 201);
+    }
+    @media (max-width: 694px) {
+      font-size: 16px;
+    }
+  }
+}
+.singUpSotialMain p,
 .peoplePlatform p {
   font-size: 16px;
   font-weight: 500;
@@ -85,41 +104,195 @@ body {
     @include flexbox(row, nowrap, center, center);
   }
 }
+
 .meetUpEventSoon,
 .meetUpEventAll {
   @include flexbox(column, nowrap, start);
-  max-width:1150px; 
+  max-width: 1150px;
 }
+
+.singUpSotial {
+  padding: 15px;
+  background-color: rgba(151, 202, 209, 0.08);
+}
+
+.singUpSotial,
 .meetUpSearch {
   @include flexbox(row, nowrap, space-between, center);
-  margin: 16px 0;
+  gap: 16px;
 }
+
 .meetUpSearch a {
   color: $primary-color-link;
   font-weight: 500;
   @media (max-width: 624px) {
-    
-     display: none;
-    
+    display: none;
   }
-}
-.searchTaunNear {
-  @include flexbox(row, nowrap, start, center);
 
 }
+.howMeetupWorksAll,
+.searchTaunNear {
+  @include flexbox(row, nowrap, start, center, center);
+  margin-bottom: 16px;
+}
+.howMeetupWorksAll {
+  gap: 16px;
+  @media (max-width: 716px) {
+    flex-wrap: wrap;
+  }
+}
+
+.popularcitiesOnMeetupAll,
+.exploreTopCategoriesMain {
+  @include flexbox(row, wrap, center, center, center);
+  gap: 16px;
+}
+.howMeetupWorks {
+  background-color: rgba(151, 202, 209, 0.08);
+  @include flexbox(column, nowrap, start);
+  gap: 16px;
+  padding: 16px;
+}
+.howMeetupWorksTail {
+  height: 145px;
+  @include flexbox(row, nowrap, start, start);
+  gap: 16px;
+}
+.exploreTopCategoriesMain li img {
+  @include dimensions(20px, 20px);
+}
+.exploreTopCategoriesMain li {
+  @include flexbox(column, nowrap, start, center);
+  @include dimensions(125px, 112px);
+  background-color: rgba(151, 202, 209, 0.08);
+  gap: 16px;
+  padding: 10px;
+  margin: 16px 0;
+}
+.howMeetupWorksTailDescription h4,
+.exploreTopCategoriesMain a,
+.popularcitiesOnMeetupAll a {
+  font-weight: bold;
+  font-size: 20px;
+  @media (max-width: 694px) {
+    font-size: 16px;
+  }
+}
+.friendshipsAreMadeOnMeetupGroup p,
+.friendshipsAreMadeOnMeetup p,
+.popularcitiesOnMeetup p {
+  opacity: 0.7;
+}
+.friendshipsAreMadeOnMeetup p{
+  max-width: 70%;
+  @media (max-width: 694px) {
+    font-size: 16px;
+  }
+}
+.friendshipsAreMadeOnMeetupGroup,
+.friendshipsAreMadeOnMeetup {
+  @include flexbox(column, nowrap, start);
+  gap: 16px;
+}
+.friendshipsAreMadeOnMeetupGroupsAll {
+  @include flexbox(row, nowrap, start);
+  gap: 16px;
+  @media (max-width: 970px) {
+    @include flexbox(row, wrap);
+  }
+}
+
+.friendshipsAreMadeOnMeetupGroup {
+  margin-bottom: 16px;
+  @include max-dimensions(305px, 440px);
+  img {
+  @include max-dimensions(300px, 376px);
+}
+  
+}
+
+.popularcitiesOnMeetupAll li {
+  @include flexbox(column, nowrap, center, center, center);
+  gap: 16px;
+  @include dimensions(200px, 260px);
+  img {
+    @include dimensions(200px, 200px);
+    border-radius: 50%;
+    @media (max-width: 478px) {
+      gap: 8px;
+      @include dimensions(150px, 150px);
+    }
+  }
+  @media (max-width: 478px) {
+    gap: 8px;
+    @include dimensions(150px, 200px);
+  }
+}
+.uncomenOnline {
+  margin: 16px 0;
+}
+
+.singUpSotialMain {
+  position: relative;
+  @include flexbox(column, nowrap, start);
+  gap: 16px;
+
+  @media (max-width: 768px) {
+    justify-content: center;
+    align-items: center;
+  }
+}
+.singUpSotialMain a {
+  @include transparent-color($primary-font-color-btn-white, 1);
+  background-color: $primary-color-btn-red;
+  text-align: center;
+  align-content: center;
+  border-radius: 8px;
+  @include dimensions(120px, 42px);
+  &:hover {
+    background-color: rgb(241, 46, 46);
+  }
+}
+.friendshipsAreMadeOnMeetup h3,
+.howMeetupWorksHeader,
+.popularcitiesOnMeetup h3,
+.exploreTopCategoriesHeader h3,
+.singUpSotialHeader h3,
 .uncomenOnline h3,
 .searchTaunNear h3 {
   margin-right: 16px;
   font-size: 28px;
   font-weight: 700;
-  margin-bottom: 9px;
   color: $primary-font-color;
   @media (max-width: 624px) {
-    
     font-size: 16px;
-   
- }
+  }
+}
 
+.singUpSotialHeader h3 {
+  @media (max-width: 768px) {
+    position: absolute;
+    left: 60px;
+    margin-bottom: 16px;
+  }
+  @media (max-width: 624px) {
+    font-size: 16px;
+    position: absolute;
+    left: 40px;
+  }
+}
+
+.singUpSotialImgToggle {
+  max-width: 240px;
+  display: none;
+  @media (max-width: 768px) {
+    display: block;
+  }
+}
+.singUpSotialImg {
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 .searchTaunNear input,
 .searchTaunNear button {
@@ -128,64 +301,63 @@ body {
 .searchTaunNear input {
   @include dimensions(240px, 42px);
   font-size: 18px;
+  padding-left: 8px;
   @media (max-width: 624px) {
-    @include dimensions(150px, 42px);
+    @include dimensions(150px, 32px);
     font-size: 14px;
-   
- }
+  }
 }
 .searchTaunNearBtn {
   background-repeat: no-repeat;
   background-position: center;
   @include dimensions(42px, 42px);
+  @media (max-width: 624px) {
+    @include dimensions(32px, 32px);
+  }
 }
 .meetUpEventSoonAll,
 .meetUpEventDescription {
   @include flexbox(row, wrap, center, center);
   gap: 16px;
   width: 100%;
-
 }
+
 .eventCard {
   @include flexbox(column, wrap, start);
   @include dimensions(200px, 360px);
   margin-right: 16px;
   @media (max-width: 1216px) {
-
     @include dimensions(190px, 380px);
-  
-}
-
+  }
 
   @media (max-width: 492px) {
     @include dimensions(320px, 260px);
-     justify-content: start;
+    justify-content: start;
     flex-direction: row;
     flex-wrap: nowrap;
-    gap:8px
-
-  
-}
-
+    gap: 8px;
+  }
 }
 .eventCard img {
   width: 100%;
   height: 130px;
   @media (max-width: 492px) {
     width: 174px;
-    
   }
 }
-.meetUpEventSoonAll{
+.contentEventSearch p {
+  opacity: 0.7;
+  font-size: 18px;
+}
+.contentEventSearch h3 {
+  font-size: 20px;
+}
+.contentEventSearch .meetUpEventSoonAll {
   margin-top: 7px;
   margin-bottom: 16px;
 }
 
-@media (max-width: 1294px) {
-  .meetUpEventDescription .eventCard:nth-last-child(-n + 2) {
-    display: none;
-  }
-}
+
 @media (max-width: 1121px) {
   .meetUpEventDescription .eventCard:nth-last-child(-n + 2) {
     display: block;
@@ -206,8 +378,8 @@ body {
     display: none;
   }
 }
-// @media (max-width: 974px) {
-//   .eventCard {
-//     @include dimensions(180px, 400px);
-//   }
-// }
+@media (max-width: 694px) {
+  .popularcitiesOnMeetup li:nth-last-child(-n + 1) {
+    display: none;
+  }
+}

@@ -89,6 +89,13 @@ module.exports = {
       fs: false,
       url: require.resolve("url/"),
     },
+    alias: {
+      "leaflet-images": path.resolve(
+        __dirname,
+        "node_modules/leaflet/dist/images"
+      ), // указываем явно путь к изображениям Leaflet
+      leaflet$: "leaflet/dist/leaflet-src.js", // указываем явно путь к исходным файлам Leaflet
+    },
   },
   devServer: {
     static: path.resolve(__dirname, "dist"),

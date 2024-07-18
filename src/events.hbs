@@ -9,13 +9,48 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+      #map { height: 400px; }
+    </style>
     <title>Events Page</title> 
   </head>
   <body> 
        {{> header}}
      <main>
-       <h2>Events Page Content</h2>
+      <div id="map" style="height: 200px;"></div>
+      <div class="filterEventsOll">
+        <h1>Events near: <br> New York, <br> San Francisco</h1>
+        <button>Events</button>
+      <div class="filterButtons">
+        
+        <select class="typeFilter">
+          <option value="all">Any type</option>
+          <option value="online">Online</option>
+          <option value="offline">Offline</option>
+        </select>
+        <select class="distanceFilter">
+          <option value="all">Any distance</option>
+          <option value="10">10 km</option>
+          <option value="20">20 km</option>
+          <option value="30">30 km</option>
+          <option value="40">40 km</option>
+          <option value="50">50 km</option>
+        </select>
+        <select class="categoryFilter">
+          <option value="all">Any category</option>
+          <option value="Hobbies and Passions">Hobbies and Passions</option>
+          <option value="Technology">Technology</option>
+          <option value="Business">Business</option>
+          <option value="Social Activities">Social Activities</option>
+          <option value="Health and Wellbeing">Health and Wellbeing</option>
+        </select>
+      </div>
+      <div class="eventList" id="eventList"></div>
+      </div>
      </main>
      {{> footer}}
+
+</script>
   </body>
 </html>

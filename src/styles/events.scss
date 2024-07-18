@@ -1,12 +1,11 @@
-
-/*# sourceMappingURL=main.css.map */
+// @import "/node_modules/leaflet/dist/leaflet.css";
 @import "/src/styles/variables";
 @import "/src/styles/mixin_funktion";
-@import "/src/styles/header" ;
-@import "/src/styles/footer" ;
+@import "/src/styles/header";
+@import "/src/styles/footer";
 * {
   box-sizing: border-box;
-  font-family: $primary-font; // шрифт Roboto
+  font-family: $primary-font;
   border: none;
   text-decoration-line: none;
   list-style-type: none;
@@ -23,10 +22,115 @@ html {
 body {
   @include max-dimensions($primary-width, 100vh);
   @include indents(10px, 5px, 10px);
+}
+main {
+  @include flexbox(row, nowrap);
+  max-width: 1150px;
+  position: relative;
 
-  // background-color: lightblue;
+}
+#map {
+  
+  position: absolute;
+  top: 250px;
+  right: 20px;
+  width: 300px;
+  height: 300px;
+  z-index: 1000;
+@media (max-width:1025px) {
+  display: none;
+}
+}
+.filterEventsOll {
+  @include flexbox(column, nowrap, start);
+  gap: 16px;
+  margin-top: 50px;
+ 
+}
 
-  // flex-direction: column;
+.filterEventsOll h1 {
+  margin-right: 16px;
+  font-size: 28px;
+  font-weight: 700;
+  color: $primary-font-color;
+  @media (max-width: 624px) {
+    font-size: 16px;
+  }
+}
+.filterEventsOll button {
+  background-color: $primary-background-color-nav;
+  font-size: 20px;
+  max-width: max-content;
+  color: $primary-color-link;
+  border-bottom: 4px solid rgb(0, 121, 138);
 
-  // align-content: space-around;
+  &:hover {
+    color: rgb(2, 177, 201);
+  }
+  @media (max-width: 624px) {
+    font-size: 16px;
+  }
+
+
+}
+
+.eventCard {
+  @include flexbox(row, nowrap, start);
+  gap: 16px;
+  @include dimensions(400px, 260px);
+
+  @media (max-width: 492px) {
+    @include dimensions(320px, 260px);
+    gap: 8px;
+   
+  }
+
+}
+.categoryFilter{
+  @media (max-width: 492px) {
+    margin-right: -1rem;
+   
+  }
+}
+.eventCard img {
+  width: 200px;
+  height:150px;
+  @media (max-width: 492px) {
+    width: 174px;
+  }
+}
+
+
+.filterButtons {
+  overflow-x: auto; /* Включаем горизонтальную прокрутку */
+  white-space: nowrap; /* Предотвращаем перенос элементов */
+  border: 1px solid rgb(255, 255, 255); /* Пример рамки для контейнера */
+  max-width: 100%; /* Обеспечиваем, чтобы контейнер не выходил за пределы родителя */
+  padding: 10px; /* Регулируем отступы по мере необходимости */
+}
+
+.filterButtons select {
+  width: 132px;
+  height: 42px;
+  cursor: pointer;
+  background-color: rgba(246, 247, 248, 1);
+  border-radius: 20px;
+  text-align: center;
+  font-weight: 700;
+  margin-right: 10px; /* Добавляем небольшой отступ между элементами */
+  margin-bottom: 90px;
+}
+
+
+@media (max-width: 492px) {
+  .filterButtons {
+      display: flex;
+      flex-direction:row;
+      align-items: center;
+  }
+
+  .filterButtons select {
+      width: 100%;
+      margin-bottom: 90px; 
+  }
 }

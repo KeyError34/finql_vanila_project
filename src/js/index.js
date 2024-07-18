@@ -1,27 +1,8 @@
 import "../../src/styles/main.scss";
-// import "../assets/icons/main_img";
-import i18n from "i18n";
 
+import { displayEvents } from "./function";
+import { setupMenuToggle } from "./function";
 console.log("Это главная страница");
-
-const menuToggle = document.querySelector("#menuToggle");
-const sideMenu = document.querySelector(".menuContent");
-const selectIcon = document.querySelector(".selectIcon");
-menuToggle.addEventListener("click", () => {
-  const isOpen = sideMenu.classList.toggle("open");
-
-  if (isOpen) {
-    menuToggle.innerHTML = "&times;";
-    menuToggle.style.left = "10px";
-    menuToggle.style.top = "10px";
-    selectIcon.style.display = "block";
-  } else {
-    menuToggle.innerHTML = "☰";
-    menuToggle.style.left = "15px";
-    menuToggle.style.top = "30px";
-    selectIcon.style.display = "none";
-  }
-});
 
 const eventsStore = [
   {
@@ -131,31 +112,6 @@ const eventsStore = [
   },
 ];
 
-function displayEvents(events, containerSelector) {
-  const eventList = document.querySelector(containerSelector);
-  if (!eventList) {
-    console.error(`Container with selector "${containerSelector}" not found.`);
-    return;
-  }
-
-  eventList.innerHTML = "";
-  events.forEach((event) => {
-    const eventCard = document.createElement("li");
-    eventCard.classList.add("eventCard");
-    eventCard.innerHTML = `
-      <div class="imgEvent"><img src="${event.image}" alt="${
-      event.title
-    }"></div>
-      <div class="contentEventSearch">
-        <h3>${event.title}</h3>
-        <p>${event.category} (${event.distance}km)</p>
-        <p>${event.date.toDateString()}</p>
-        <p>${event.attendees} going </br> $${event.price.toFixed(2)}</p>
-      </div>`;
-    eventList.appendChild(eventCard);
-  });
-}
-
 function filterEventsByCity(city) {
   const filteredEvents = eventsStore.filter(
     (event) => event.city.toLowerCase() === city.toLowerCase()
@@ -171,6 +127,10 @@ function filterEventsByType(events, type) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  // Отображение фиксированого модального меню
+
+  setupMenuToggle("#menuToggle", ".menuContent", ".selectIcon");
+
   // Отображаем все события в основном контейнере
   displayEvents(eventsStore, ".meetUpEventDescription");
 
