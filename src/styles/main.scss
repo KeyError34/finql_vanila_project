@@ -324,7 +324,7 @@ body {
 
 .eventCard {
   @include flexbox(column, wrap, start);
-  @include dimensions(200px, 360px);
+  @include dimensions(200px, 420px);
   margin-right: 16px;
   @media (max-width: 1216px) {
     @include dimensions(190px, 380px);
