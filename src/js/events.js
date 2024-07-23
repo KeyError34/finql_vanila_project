@@ -6,12 +6,11 @@ import L from "leaflet";
 
 
 
-
 const eventsStore = [
   {
     title: "Day Trading Idea and Strategy",
     date: new Date(2024, 8, 22, 19),
-    image: "/src/assets/images/main_event_img/DayTradingIdeaandStrategy.png",
+    image: "/assets/images/main_event_img/DayTradingIdeaandStrategy.png",
     type: "offline",
     attendees: 15,
     price: 0.0,
@@ -24,7 +23,7 @@ const eventsStore = [
   {
     title: "Let's Talk Networking: JPMorgan Chase in Palo Alto",
     date: new Date(2024, 8, 21, 17),
-    image: "/src/assets/images/main_event_img/Let'sTalkNetworking.png",
+    image: "/assets/images/main_event_img/Let'sTalkNetworking.png",
     type: "offline",
     attendees: 41,
     price: 0.0,
@@ -38,7 +37,7 @@ const eventsStore = [
     title:
       "Tech Talks & Quiz: Next-Gen Database Solutions for Emerging Use Cases",
     date: new Date(2024, 8, 13, 18),
-    image: "/src/assets/images/main_event_img/TechTalks&Quiz.webp.png",
+    image: "/assets/images/main_event_img/TechTalks&Quiz.webp.png",
     type: "online",
     attendees: 40,
     price: 0.0,
@@ -51,7 +50,7 @@ const eventsStore = [
   {
     title: "INFORMS San Francisco Chapter In-Person Event",
     date: new Date(2024, 2, 23, 17),
-    image: "/src/assets/images/main_event_img/INFORMSSanFranciscoChapter.png",
+    image: "/assets/images/main_event_img/INFORMSSanFranciscoChapter.png",
     type: "offline",
     attendees: 41,
     price: 0.0,
@@ -64,7 +63,7 @@ const eventsStore = [
   {
     title: "AI Wednesdays - Meet and Greet!",
     date: new Date(2024, 8, 13, 18),
-    image: "/src/assets/images/main_event_img/AIWednesdays.png",
+    image: "/assets/images/main_event_img/AIWednesdays.png",
     type: "offline",
     attendees: 29,
     price: 0.0,
@@ -77,7 +76,7 @@ const eventsStore = [
   {
     title: "ROS By-The-Bay March 2024",
     date: new Date(2024, 8, 21, 18),
-    image: "/src/assets/images/main_event_img/ROSBy-The-Bay.png",
+    image: "/assets/images/main_event_img/ROSBy-The-Bay.png",
     type: "online",
     attendees: 51,
     price: 0.0,
@@ -90,7 +89,7 @@ const eventsStore = [
   {
     title: "Free Christian Singles' Dinner",
     date: new Date(2024, 8, 29, 18),
-    image: "/src/assets/images/main_event_img/FreeChristian.png",
+    image: "/assets/images/main_event_img/FreeChristian.png",
     type: "offline",
     attendees: 11,
     price: 0.0,
@@ -103,7 +102,7 @@ const eventsStore = [
   {
     title: "In-person: Deep Dive into RAG Architectures (Food served)",
     date: new Date(2024, 2, 14, 11),
-    image: "/src/assets/images/main_event_img/inpersone.png",
+    image: "/assets/images/main_event_img/inpersone.png",
     type: "offline",
     attendees: 16,
     price: 0.0,
@@ -114,7 +113,6 @@ const eventsStore = [
     city: "San Francisco",
   },
 ];
-
 
 
 let map;

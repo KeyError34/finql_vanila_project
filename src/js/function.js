@@ -1,4 +1,3 @@
-// Отображаем все события в основном контейнере
 export function displayEvents(
   events,
   containerSelector,
@@ -24,7 +23,11 @@ export function displayEvents(
         <p>${event.date.toDateString()}</p>
         <p>Type: ${event.type}</p>
         <p>Category: ${event.category}</p>
-        ${event.type === "offline" ? `<p>Distance: ${event.distance} km</p> `: ""}
+        ${
+          event.type === "offline"
+            ? `<p>Distance: ${event.distance} km</p> `
+            : ""
+        }
         <p>Attendees: ${event.attendees}</p>
           </div>`;
 
@@ -35,7 +38,7 @@ export function displayEvents(
     eventList.appendChild(eventCard);
   });
 }
-// Отображение фиксированого модального меню
+
 export function setupMenuToggle(
   menuToggleSelector,
   sideMenuSelector,
@@ -65,4 +68,80 @@ export function setupMenuToggle(
       selectIcon.style.display = "none";
     }
   });
+}
+
+export function filterEventsByCity(events, city) {
+  return events.filter((event) =>
+    event.city.toLowerCase().includes(city.toLowerCase())
+  );
+}
+
+export function filterEventsByTitel(events, title) {
+  return events.filter((event) =>
+    event.title.toLowerCase().includes(title.toLowerCase())
+  );
+}
+
+export function filterEventsByType(events, type) {
+  return events.filter(
+    (event) => event.type.toLowerCase() === type.toLowerCase()
+  );
+}
+
+function searchEvents(eventsStore, query, filterFunction, containerSelector) {
+  const filteredEvents = filterFunction(eventsStore, query);
+
+  displayEvents(filteredEvents, containerSelector);
+}
+
+export function performSearch(
+  eventsStore,
+  inputElement,
+  filterFunction,
+  containerSelector
+) {
+  const query = inputElement.value.trim();
+  searchEvents(eventsStore, query, filterFunction, containerSelector);
+}
+
+export function handleSearchButtonClick(
+  eventsStore,
+  searchEvent,
+  searchLokation,
+  filterEventsByTitel,
+  filterEventsByCity,
+  displayEvents
+) {
+  return () => {
+    const searchEventQuery = searchEvent.value.trim();
+    const searchLokationQuery = searchLokation.value.trim();
+
+    let filteredEvents = eventsStore;
+
+    if (searchEventQuery || searchLokationQuery) {
+      filteredEvents = filterEventsByTitel(filteredEvents, searchEventQuery);
+      filteredEvents = filterEventsByCity(filteredEvents, searchLokationQuery);
+    } else {
+      alert("Search error: try entering event name or city.");
+      return;
+    }
+
+    if (filteredEvents.length === 0) {
+      alert("No results for your search. Try another city or another event.");
+    } else {
+      displayEvents(filteredEvents, ".meetUpEventDescription");
+    }
+
+    searchEvent.value = "";
+    searchLokation.value = "";
+  };
+}
+export function showAllEventCards(containerSelector, cardSelector) {
+  const container = document.querySelector(containerSelector);
+  if (container) {
+    const cards = container.querySelectorAll(cardSelector);
+    cards.forEach((card) => {
+      card.style.display = "block";
+    });
+  }
 }

@@ -294,8 +294,8 @@ body {
     display: none;
   }
 }
-.searchTaunNear input,
-.searchTaunNear button {
+// .searchTaunNear button,
+.searchTaunNear input{
   background-color: rgba(243, 249, 249, 1);
 }
 .searchTaunNear input {
@@ -307,14 +307,14 @@ body {
     font-size: 14px;
   }
 }
-.searchTaunNearBtn {
-  background-repeat: no-repeat;
-  background-position: center;
-  @include dimensions(42px, 42px);
-  @media (max-width: 624px) {
-    @include dimensions(32px, 32px);
-  }
-}
+// .searchTaunNearBtn {
+//   background-repeat: no-repeat;
+//   background-position: center;
+//   @include dimensions(42px, 42px);
+//   @media (max-width: 624px) {
+//     @include dimensions(32px, 32px);
+//   }
+// }
 .meetUpEventSoonAll,
 .meetUpEventDescription {
   @include flexbox(row, wrap, center, center);
@@ -331,7 +331,7 @@ body {
   }
 
   @media (max-width: 492px) {
-    @include dimensions(320px, 260px);
+    @include dimensions(320px, 380px);
     justify-content: start;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -377,6 +377,9 @@ body {
   .meetUpEventDescription .eventCard:nth-last-child(-n + 6) {
     display: none;
   }
+}
+.show-all  .eventCard {
+  display: block !important;
 }
 @media (max-width: 694px) {
   .popularcitiesOnMeetup li:nth-last-child(-n + 1) {

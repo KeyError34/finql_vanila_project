@@ -1,10 +1,10 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
-  devtool: "source-map", // дебагинг
-  watch: true, // позволяем следить за изменениями
+  devtool: "source-map",
   entry: {
     index: "./src/js/index.js",
     events: "./src/js/events.js",
@@ -12,13 +12,13 @@ module.exports = {
   output: {
     filename: "[name].bundle.js",
     path: path.resolve(__dirname, "dist"),
-    clean: true, // очистка выходного каталога перед каждой сборкой
+    clean: true,
   },
   module: {
     rules: [
       {
-        test: /\.js$/, // указываем какого формата файлы будут проганяться
-        exclude: /node_modules/, // исключаем из процесса
+        test: /\.js$/,
+        exclude: /node_modules/,
         use: {
           loader: "babel-loader",
           options: {
@@ -28,11 +28,7 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: [
-          MiniCssExtractPlugin.loader, // извлечение CSS в отдельные файлы
-          "css-loader",
-          "sass-loader",
-        ],
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/i,
@@ -46,13 +42,6 @@ module.exports = {
         type: "asset/resource",
         generator: {
           filename: "assets/fonts/[name][ext]",
-        },
-      },
-      {
-        test: /\.(ico|svg)$/i,
-        type: "asset/resource",
-        generator: {
-          filename: "assets/icons/[name][ext]",
         },
       },
       {
@@ -82,6 +71,9 @@ module.exports = {
       template: "./src/events.hbs",
       chunks: ["events"],
     }),
+    new CopyWebpackPlugin({
+      patterns: [{ from: path.resolve(__dirname, "src/assets"), to: "assets" }],
+    }),
   ],
   resolve: {
     fallback: {
@@ -90,15 +82,16 @@ module.exports = {
       url: require.resolve("url/"),
     },
     alias: {
-      "leaflet-images": path.resolve(
-        __dirname,
-        "node_modules/leaflet/dist/images"
-      ), // указываем явно путь к изображениям Leaflet
-      leaflet$: "leaflet/dist/leaflet-src.js", // указываем явно путь к исходным файлам Leaflet
+      leaflet$: "leaflet/dist/leaflet-src.js",
     },
   },
   devServer: {
-    static: path.resolve(__dirname, "dist"),
-    open: true,
+    static: {
+      directory: path.resolve(__dirname, "dist"),
+    },
+    compress: true, // Включить сжатие
+    port: 9000, // Порт сервера
+    open: true, // Автоматическое открытие в браузере
+    watchFiles: ["src/**/*"], // Обновление при изменениях в исходных файлах
   },
 };
