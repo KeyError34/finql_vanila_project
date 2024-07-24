@@ -1,6 +1,14 @@
 import "../../src/styles/events.scss";
 import { displayEvents } from "./function";
 import { setupMenuToggle } from "./function";
+import {
+  filterEventsByCity,
+  filterEventsByTitel,
+  filterEventsByType,
+  showAllEventCards,
+  performSearch,
+  handleSearchButtonClick,
+} from "./function";
 import L from "leaflet";
 // import 'leaflet/dist/leaflet.css';
 
@@ -141,7 +149,7 @@ function updateMapMarkers(events) {
   });
 }
 
-// Функция фильтрации и отображения событий
+
 function filterEvents() {
   const typeFilter = document.querySelector(".typeFilter").value;
   const distanceFilter = document.querySelector(".distanceFilter").value;
@@ -170,12 +178,21 @@ function filterEvents() {
   updateMapMarkers(filteredEvents);
   displayEvents(filteredEvents, ".eventList", true);
 }
+const cityInput = document.querySelector("#city-input");
 
-// Инициализация после загрузки DOM
+const searchLokation = document.querySelector(".searchLokation"); 
+const searchEventBtn = document.querySelector(".searchEventBtn "); 
+
+
+const eventList = document.querySelector(".eventList")
+
+
+const searchEventMedia = document.querySelector(".searchEventMedia");
+
 document.addEventListener("DOMContentLoaded", () => {
   setupMenuToggle("#menuToggle", ".menuContent", ".selectIcon");
   initMap();
-  filterEvents(); // Вызов фильтрации и отображения событий при загрузке
+  filterEvents(); 
   document
     .querySelector(".typeFilter")
     .addEventListener("change", filterEvents);
@@ -185,6 +202,73 @@ document.addEventListener("DOMContentLoaded", () => {
   document
     .querySelector(".categoryFilter")
     .addEventListener("change", filterEvents);
+
+    cityInput.addEventListener("input", () => {
+      eventList.innerHTML=""
+      performSearch(
+        eventsStore,
+        cityInput,
+        filterEventsByCity,
+        ".eventList"
+      ); 
+      // showAllEventCards('.eventList','.eventCard');
+    });
+    cityInput.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        event.preventDefault(); 
+        performSearch(
+          eventsStore,
+          cityInput,
+          filterEventsByCity,
+          '.eventList'
+        ); 
+        cityInput.value = ""; 
+      }
+      // showAllEventCards('.eventList','.eventCard');
+    });
+    searchLokation.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        event.preventDefault(); 
+        performSearch(
+          eventsStore,
+          searchLokation,
+          filterEventsByCity,
+          '.eventList'
+        ); 
+        searchLokation.value = ""; 
+      }
+    });
+    searchLokation.addEventListener("input", () => {
+      performSearch(
+        eventsStore,
+        searchLokation,
+        filterEventsByCity,
+        '.eventList'
+      );
+    });
+    searchEventMedia.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        event.preventDefault(); 
+        performSearch(
+          eventsStore,
+          searchEventMedia,
+          filterEventsByTitel,
+          '.eventList'
+        ); 
+        searchEventMedia.value = ""; 
+      }
+      // showAllEventCards('.eventList','.eventCard');
+    });
+    searchEventMedia.addEventListener("input", () => {
+     
+      performSearch(
+        eventsStore,
+        searchEventMedia,
+        filterEventsByTitel,
+        '.eventList'
+      ); 
+      // showAllEventCards('.eventList','.eventCard');
+    });
 });
 
 

@@ -153,7 +153,9 @@ body {
   gap: 16px;
   padding: 16px;
 }
+
 .howMeetupWorksTail {
+ 
   height: 145px;
   @include flexbox(row, nowrap, start, start);
   gap: 16px;
