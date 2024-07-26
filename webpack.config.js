@@ -13,6 +13,7 @@ module.exports = {
     filename: "[name].bundle.js",
     path: path.resolve(__dirname, "dist"),
     clean: true,
+    publicPath: "/", 
   },
   module: {
     rules: [
@@ -76,22 +77,20 @@ module.exports = {
     }),
   ],
   resolve: {
-    fallback: {
-      path: require.resolve("path-browserify"),
-      fs: false,
-      url: require.resolve("url/"),
-    },
     alias: {
       leaflet$: "leaflet/dist/leaflet-src.js",
     },
   },
   devServer: {
     static: {
-      directory: path.resolve(__dirname, "dist"),
+      directory: path.resolve(__dirname, 'dist'),
     },
-    compress: true, // Включить сжатие
-    port: 9000, // Порт сервера
-    open: true, // Автоматическое открытие в браузере
-    watchFiles: ["src/**/*"], // Обновление при изменениях в исходных файлах
+    compress: true, 
+    port: 9001, 
+    open: true ,//['/index.html', '/events.html'], 
+    watchFiles: ['src/**/*'], 
+    client: {
+      webSocketURL: 'ws://localhost:9001/ws',
+    },
   },
 };

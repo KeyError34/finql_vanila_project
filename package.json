@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "npm run dev",
-    "dev": "webpack serve --mode development",
+    "start": "webpack serve --mode development",
     "build": "webpack --mode production"
   },
   "author": "",
@@ -35,5 +34,6 @@
     "lodash": "^4.17.21",
     "swiper": "^11.1.5"
   },
+  "keywords": [],
   "description": ""
 }
